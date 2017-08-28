@@ -1,26 +1,47 @@
 <template>
 
 	<div id="Root" class="root-div">
-		<master @isNew = "setNew" @readDetail = "readIndex" @updateDetail = "updateIndex"></master>
-		<detail v-if="this.showDetail" v-bind:readIndex = "this.itemIndex" v-bind:detailMode="detailMode" v-bind:enableButtons="enableButtons"></detail>
+		<tabs @changeTab = "changeTab" v-bind:menuChoice = "this.menuChoice"></tabs>
+		<masterPeliculas v-if="this.menuChoice == 'Pelicula'" v-bind:menuChoice="this.menuChoice" @isNew = "setNew" @readDetail = "readIndex" @updateDetail = "updateIndex"></masterPeliculas>
+		<masterEntradas v-if="this.menuChoice == 'Entrada'" v-bind:menuChoice="this.menuChoice" @isNew = "setNew" @readDetail = "readIndex" @updateDetail = "updateIndex"></masterEntradas>
+		<detailEntradas v-if="showDetailEntradas" v-bind:readIndex = "this.itemIndex" v-bind:detailMode="detailMode" v-bind:enableButtons="enableButtons">
+		</detailEntradas>
+		<detailPeliculas v-if="showDetailPeliculas" v-bind:readIndex = "this.itemIndex" v-bind:detailMode="detailMode" v-bind:enableButtons="enableButtons">
+		</detailPeliculas>
 	</div>
 </template>
 
 <script>
-	import master from './master.vue'
-	import detail from './detail.vue'
+	import masterPeliculas from './masterPeliculas.vue'
+	import masterEntradas from './masterEntradas.vue'
+	import detailPeliculas from './detailPeliculas.vue'
+	import detailEntradas from './detailEntradas.vue'
+	import tabs from './tabs.vue'
+
 	export default{
 		components:{
-			master,
-			detail,
+			masterPeliculas,
+			masterEntradas,
+			detailPeliculas,
+			detailEntradas,
+			tabs
 		},
 		data (){
 			return{
 				showDetail : false,
 				enableButtons: false,
 				itemIndex : "",
-				detailMode : ""
+				detailMode : "",
+				menuChoice : "Pelicula"
 			}
+		},
+		computed:{
+			showDetailEntradas: function(){
+				return this.showDetail && this.menuChoice == "Entrada";
+			},
+			showDetailPeliculas: function(){
+				return this.showDetail && this.menuChoice == "Pelicula";
+			},
 		},
 		methods:{
 			setNew(newState){
@@ -36,7 +57,12 @@
 				this.itemIndex = index;
 				this.showDetail = true;
 				this.enableButtons = false;
-			},			
+			},		
+			changeTab(option){
+				this.menuChoice = option;
+				this.showDetail = false;
+			}
+
 		}
 	}
 </script>

@@ -564,7 +564,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
 
 // exports
 
@@ -593,17 +593,18 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: "Detail",
 	data() {
 		return {
-			menuChoice: "Pelicula",
 			currentObject: [],
 			index: ""
 		};
 	},
-	props: ['readIndex', 'enableButtons', 'detailMode'],
+	props: ['readIndex', 'enableButtons', 'detailMode', 'menuChoice'],
 	computed: {
 		calculateButtons: function () {}
 	},
@@ -681,7 +682,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.currentObject.property1 = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('label', [_vm._v("Apellido:")]), _vm._v(" "), _c('input', {
+  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('label', [_vm._v("Apellido:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -703,7 +704,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.currentObject.property2 = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('label', [_vm._v("Edad:")]), _vm._v(" "), _c('input', {
+  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('label', [_vm._v("Edad:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -744,6 +745,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("LIMPIAR")]), _vm._v(" "), _c('button', {
     attrs: {
+      "disabled": !this.enableButtons,
       "id": "resetButton"
     },
     on: {

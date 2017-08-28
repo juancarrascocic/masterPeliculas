@@ -24,9 +24,10 @@
 		data (){
 			return{
 				lista : [],
-				menuChoice : "Pelicula"
+
 			}
 		},
+		props:['menuChoice'],
 		computed:{
 			computedClass(){
 
@@ -64,6 +65,7 @@
 		created(){
 			this.makeGetListRequest();
 		},
+
 	}
 </script>
 <style type="text/css">

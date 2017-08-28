@@ -1,9 +1,7 @@
 module.exports = {
   // other options...
     entry:{
-      master: './components/master.vue',
       root: './components/root.vue',
-      detail: './components/detail.vue',
       main: './main.js'
     }, 
 output: {

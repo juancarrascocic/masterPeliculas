@@ -2,37 +2,43 @@
 	<div class="detail-div" id="Detail">
 		<h1>DETAIL:</h1>
 		<div id ="FormularioUsuarios"  class="Formulario">
-			<label>Nombre:</label>
-			<input :disabled="read" v-model="currentObject.property1" type="text" id="nombreInput" placeholder="Nombre"></input>
-			<label>Apellido:</label>
-			<input :disabled="read" type="text" v-model="currentObject.property2" id="apellidoInput" placeholder="Apellido"></input>
-			<label>Edad:</label>
-			<input :disabled="read" type="number" v-model="currentObject.property3" id="edadInput" placeholder="Edad"></input>
-			<div class = "buttonContainer">
-				<button :disabled="!this.enableButtons" id="acceptButton" v-on:click="buttonAccept">ACEPTAR</button>
-				<button  id="limpiarButton" v-on:click="buttonClean">LIMPIAR</button>
-				<button  id="resetButton" v-on:click="buttonReset">RESET</button>
-			</div>
-		</div>
+			<label>Hora:</label>
+			<input :disabled="read" v-model="currentObject.property1" type="time" id="horaInput" placeholder="Hora"></input>
+		</br>
+		<label>Precio:</label>
+		<input :disabled="read" type="number" v-model="currentObject.property2" id="precioInput" placeholder="Precio"></input>
+	</br>
+	<label>Pelicula:</label>
+	<select :disabled="read">
+		<option value="p1">Pelicula1</option>
+		<option value="p2">Pelicula2</option>
+		<option value="p3">Pelicula3</option>
+		<option value="p4">Pelicula4</option>
+	</select>
+	<div class = "buttonContainer">
+		<button :disabled="!this.enableButtons" id="acceptButton" v-on:click="buttonAccept">ACEPTAR</button>
+		<button  id="limpiarButton" v-on:click="buttonClean">LIMPIAR</button>
+		<button :disabled="!this.enableButtons" id="resetButton" v-on:click="buttonReset">RESET</button>
 	</div>
+</div>
+</div>
 </template>
 
 <script>
-	export default {
+	export default {	
 		name:"Detail",
 		data (){
 			return{
-				menuChoice : "Pelicula",
 				currentObject: [],
 				index:""
 			}
 		},
 		props:['readIndex',
 		'enableButtons',
-		'detailMode'],
+		'detailMode',
+		'menuChoice'],
 		computed:{
 			calculateButtons: function(){
-
 			}
 		},
 		methods:{

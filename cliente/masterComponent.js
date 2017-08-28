@@ -594,10 +594,11 @@ var baseURL = "http://localhost:53765/api/";
 	name: 'master',
 	data() {
 		return {
-			lista: [],
-			menuChoice: "Pelicula"
+			lista: []
+
 		};
 	},
+	props: ['menuChoice'],
 	computed: {
 		computedClass() {}
 	},
@@ -630,6 +631,7 @@ var baseURL = "http://localhost:53765/api/";
 	created() {
 		this.makeGetListRequest();
 	}
+
 });
 
 /***/ }),
