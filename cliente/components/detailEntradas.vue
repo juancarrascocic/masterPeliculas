@@ -25,9 +25,10 @@
 </template>
 
 <script>
+	var baseURL = "http://localhost:53765/api/"
 	export default {	
 		name:"Detail",
-		data (){
+		data (){a
 			return{
 				currentObject: [],
 				index:""
@@ -39,17 +40,20 @@
 		'menuChoice'],
 		computed:{
 			calculateButtons: function(){
+			},
+			getData: function(){
+				readDetail();
 			}
 		},
 		methods:{
 	  // all code for my component goes here
 	  makeGetRequest: function(id){
-	  	$.ajax(url="http://localhost:57470/api/" + this.menuChoice + "/" + id,
+	  	$.ajax(url=baseURL + this.menuChoice + "/" + id,
 	  		method="GET")
 	  	.done(this.submitDetailValues)
 	  },
-	  readDetail: function(index){
-	  	this.makeGetRequest(index);
+	  readDetail: function(){
+	  	this.makeGetRequest(this.readIndex);
 	  	this.read = true;
 	  },
 	  updateDetail: function(index){
@@ -68,7 +72,7 @@
 	  	this.currentPerson.age = "";
 	  },
 	  deleteItem: function(index){
-	  	$.ajax({url:"http://localhost:57470/api/ " + this.menuChoice +"/" + index,
+	  	$.ajax({url:baseURL + this.menuChoice +"/" + index,
 	  		method:"DELETE"})	
 	  	.done(this.makeGetListRequest)
 	  	.fail(function(){

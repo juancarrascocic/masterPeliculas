@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -139,7 +139,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(6)
+var listToStyles = __webpack_require__(7)
 
 /*
 type StyleObject = {
@@ -442,13 +442,25 @@ module.exports = function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+			STATE_NEW : 0,
+			STATE_READ : 1,
+			STATE_UPDATE : 2
+
+});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_root_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ca5e97f0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_root_vue__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_root_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ca5e97f0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_root_vue__ = __webpack_require__(34);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(4)
+  __webpack_require__(5)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -492,13 +504,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(6);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -518,7 +530,7 @@ if(false) {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -526,13 +538,13 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /**
@@ -565,15 +577,16 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__masterPeliculas_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__masterEntradas_vue__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detailPeliculas_vue__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detailEntradas_vue__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_vue__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__masterPeliculas_vue__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__masterEntradas_vue__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detailPeliculas_vue__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detailEntradas_vue__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_vue__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__constants_js__ = __webpack_require__(3);
 //
 //
 //
@@ -586,7 +599,7 @@ module.exports = function listToStyles (parentId, list) {
 //
 //
 //
-//
+
 
 
 
@@ -607,8 +620,9 @@ module.exports = function listToStyles (parentId, list) {
 			showDetail: false,
 			enableButtons: false,
 			itemIndex: "",
-			detailMode: "",
-			menuChoice: "Pelicula"
+			detailMode: __WEBPACK_IMPORTED_MODULE_5__constants_js__["a" /* default */].STATE_NEW,
+			menuChoice: "Pelicula",
+			read: true
 		};
 	},
 	computed: {
@@ -623,10 +637,13 @@ module.exports = function listToStyles (parentId, list) {
 		setNew(newState) {
 			this.showDetail = true;
 			this.enableButtons = false;
+			this.read = false;
+			this.detailMode = __WEBPACK_IMPORTED_MODULE_5__constants_js__["a" /* default */].STATE_NEW;
 		},
 		readIndex(index) {
 			this.itemIndex = index;
 			this.showDetail = true;
+			this.detailMode = __WEBPACK_IMPORTED_MODULE_5__constants_js__["a" /* default */].STATE_READ;
 			this.enableButtons = false;
 		},
 		updateIndex(index) {
@@ -643,16 +660,16 @@ module.exports = function listToStyles (parentId, list) {
 });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_masterPeliculas_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_45277902_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_masterPeliculas_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_masterPeliculas_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_45277902_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_masterPeliculas_vue__ = __webpack_require__(13);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(9)
+  __webpack_require__(10)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -696,13 +713,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(10);
+var content = __webpack_require__(11);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -722,7 +739,7 @@ if(false) {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -736,7 +753,7 @@ exports.push([module.i, "\ndiv.master-div-row {\n\tborder-size:1px;\n\tborder-st
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -806,7 +823,7 @@ var baseURL = "http://localhost:53765/api/";
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -889,16 +906,16 @@ if (false) {
 }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_masterEntradas_vue__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1311dd24_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_masterEntradas_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_masterEntradas_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1311dd24_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_masterEntradas_vue__ = __webpack_require__(18);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(14)
+  __webpack_require__(15)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -942,13 +959,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(15);
+var content = __webpack_require__(16);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -968,7 +985,7 @@ if(false) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -982,7 +999,7 @@ exports.push([module.i, "\ndiv.master-div-row {\n\tborder-size:1px;\n\tborder-st
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1053,7 +1070,7 @@ var baseURL = "http://localhost:53765/api/";
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1138,16 +1155,16 @@ if (false) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_detailPeliculas_vue__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_68fa311a_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_detailPeliculas_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_detailPeliculas_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_68fa311a_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_detailPeliculas_vue__ = __webpack_require__(23);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(19)
+  __webpack_require__(20)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -1191,13 +1208,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(20);
+var content = __webpack_require__(21);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1217,7 +1234,7 @@ if(false) {
 }
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -1225,16 +1242,17 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_js__ = __webpack_require__(3);
 //
 //
 //
@@ -1264,26 +1282,71 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 //
 //
 //
+
+var baseURL = "http://localhost:53765/api/";
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: "Detail",
 	data() {
 		return {
-			currentPelicula: [],
-			index: ""
+			currentPelicula: {
+				Titulo: undefined,
+				Director: undefined,
+				Duracion: 0,
+				Pais: undefined
+
+			},
+			previousPelicula: {
+				Titulo: undefined,
+				Director: undefined,
+				Duracion: 0,
+				Pais: undefined }
 		};
 	},
-	props: ['readIndex', 'enableButtons', 'detailMode', 'menuChoice'],
+	props: ['readIndex', 'enableButtons', 'detailMode', 'menuChoice', 'read'],
 	computed: {
-		calculateButtons: function () {}
+		enableCleanButton: function () {
+			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		enableResetButton: function () {
+			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		enableAcceptButton: function () {
+			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		updateMode: function () {
+			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
+				this.readDetail();
+			} else if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_NEW) {
+				this.currentPelicula = {};
+				this.previousPelicula = {};
+			}
+		}
+
 	},
 	methods: {
 		// all code for my component goes here
-		makeGetRequest: function (id) {
-			$.ajax(url = "http://localhost:57470/api/" + this.menuChoice + "/" + id, method = "GET").done(this.submitDetailValues);
+		makeGetRequest: function () {
+			$.ajax({ url: baseURL + this.menuChoice + "/" + this.readIndex,
+				method: "GET" }).done(this.submitDetailValues);
 		},
-		readDetail: function (index) {
-			this.makeGetRequest(index);
+		submitDetailValues: function (data) {
+			this.currentPelicula = data;
+		},
+		readDetail: function () {
+			this.makeGetRequest(this.readIndex);
 			this.read = true;
 		},
 		updateDetail: function (index) {
@@ -1301,20 +1364,35 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 			this.currentPerson.surname = "";
 			this.currentPerson.age = "";
 		},
+		buttonClean: function () {
+			this.currentPelicula = {};
+			this.previousPelicula = {};
+		},
 		deleteItem: function (index) {
-			$.ajax({ url: "http://localhost:57470/api/ " + this.menuChoice + "/" + index,
+			$.ajax({ url: baseURL + this.menuChoice + "/" + index,
 				method: "DELETE" }).done(this.makeGetListRequest).fail(function () {
 				alert("ELEMENTO NO BORRADO");
 			});
 		}
 	},
 	mounted() {
-		console.log('Component mounted.');
+		if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
+			this.readDetail();
+		} else if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_NEW) {
+			this.currentPelicula = { Titulo: undefined,
+				Director: undefined,
+				Duracion: 0,
+				Pais: undefined };
+			this.previousPelicula = { Titulo: undefined,
+				Director: undefined,
+				Duracion: 0,
+				Pais: undefined };
+		}
 	}
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1340,7 +1418,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "disabled": _vm.read,
       "type": "text",
       "id": "nombreInput",
-      "placeholder": "Nombre"
+      "placeholder": "Titulo"
     },
     domProps: {
       "value": (_vm.currentPelicula.Titulo)
@@ -1362,7 +1440,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "disabled": _vm.read,
       "type": "text",
       "id": "apellidoInput",
-      "placeholder": "Apellido"
+      "placeholder": "Director"
     },
     domProps: {
       "value": (_vm.currentPelicula.Director)
@@ -1384,7 +1462,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "disabled": _vm.read,
       "type": "number",
       "id": "edadInput",
-      "placeholder": "Edad"
+      "placeholder": "Duracion"
     },
     domProps: {
       "value": (_vm.currentPelicula.Duracion)
@@ -1418,19 +1496,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('option', {
     attrs: {
-      "value": "españa"
+      "value": "España"
     }
   }, [_vm._v("España")]), _vm._v(" "), _c('option', {
     attrs: {
-      "value": "francia"
+      "value": "Francia"
     }
   }, [_vm._v("Francia")]), _vm._v(" "), _c('option', {
     attrs: {
-      "value": "alemania"
+      "value": "Alemania"
     }
   }, [_vm._v("Alemania")]), _vm._v(" "), _c('option', {
     attrs: {
-      "value": "eeuu"
+      "value": "EEUU"
     }
   }, [_vm._v("EEUU")])]), _vm._v(" "), _c('div', {
     staticClass: "buttonContainer"
@@ -1444,6 +1522,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("ACEPTAR")]), _vm._v(" "), _c('button', {
     attrs: {
+      "disabled": this.enableCleanButton,
       "id": "limpiarButton"
     },
     on: {
@@ -1471,16 +1550,16 @@ if (false) {
 }
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_detailEntradas_vue__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d97346da_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_detailEntradas_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_detailEntradas_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d97346da_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_detailEntradas_vue__ = __webpack_require__(28);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(24)
+  __webpack_require__(25)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -1524,13 +1603,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(25);
+var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1550,7 +1629,7 @@ if(false) {
 }
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -1558,13 +1637,13 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1595,9 +1674,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 //
 //
 
+var baseURL = "http://localhost:53765/api/";
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: "Detail",
 	data() {
+		a;
 		return {
 			currentObject: [],
 			index: ""
@@ -1605,15 +1686,18 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 	},
 	props: ['readIndex', 'enableButtons', 'detailMode', 'menuChoice'],
 	computed: {
-		calculateButtons: function () {}
+		calculateButtons: function () {},
+		getData: function () {
+			readDetail();
+		}
 	},
 	methods: {
 		// all code for my component goes here
 		makeGetRequest: function (id) {
-			$.ajax(url = "http://localhost:57470/api/" + this.menuChoice + "/" + id, method = "GET").done(this.submitDetailValues);
+			$.ajax(url = baseURL + this.menuChoice + "/" + id, method = "GET").done(this.submitDetailValues);
 		},
-		readDetail: function (index) {
-			this.makeGetRequest(index);
+		readDetail: function () {
+			this.makeGetRequest(this.readIndex);
 			this.read = true;
 		},
 		updateDetail: function (index) {
@@ -1632,7 +1716,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 			this.currentPerson.age = "";
 		},
 		deleteItem: function (index) {
-			$.ajax({ url: "http://localhost:57470/api/ " + this.menuChoice + "/" + index,
+			$.ajax({ url: baseURL + this.menuChoice + "/" + index,
 				method: "DELETE" }).done(this.makeGetListRequest).fail(function () {
 				alert("ELEMENTO NO BORRADO");
 			});
@@ -1644,7 +1728,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1762,16 +1846,16 @@ if (false) {
 }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_tabs_vue__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6fbeb8a4_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_tabs_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_tabs_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6fbeb8a4_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_tabs_vue__ = __webpack_require__(33);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(29)
+  __webpack_require__(30)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -1815,13 +1899,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(31);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1841,7 +1925,7 @@ if(false) {
 }
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
@@ -1855,7 +1939,7 @@ exports.push([module.i, "\na.anchorMenu{\n\tdisplay:inline-block;\n\tpadding: 10
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1890,7 +1974,7 @@ exports.push([module.i, "\na.anchorMenu{\n\tdisplay:inline-block;\n\tpadding: 10
 });
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1927,7 +2011,7 @@ if (false) {
 }
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1966,13 +2050,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "readIndex": this.itemIndex,
       "detailMode": _vm.detailMode,
-      "enableButtons": _vm.enableButtons
+      "enableButtons": _vm.enableButtons,
+      "menuChoice": this.menuChoice
     }
   }) : _vm._e(), _vm._v(" "), (_vm.showDetailPeliculas) ? _c('detailPeliculas', {
     attrs: {
+      "read": this.read,
       "readIndex": this.itemIndex,
       "detailMode": _vm.detailMode,
-      "enableButtons": _vm.enableButtons
+      "enableButtons": _vm.enableButtons,
+      "menuChoice": this.menuChoice
     }
   }) : _vm._e()], 1)
 }
