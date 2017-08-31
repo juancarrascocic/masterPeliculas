@@ -62,6 +62,7 @@
 				this.itemIndex = index;
 				this.showDetail = true;
 				this.enableButtons = false;
+				this.detailMode = constantes.STATE_UPDATE;
 			},		
 			changeTab(option){
 				this.menuChoice = option;

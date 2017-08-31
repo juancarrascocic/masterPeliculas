@@ -3,11 +3,10 @@
 	<div id="Master" class="master-div">
 		<h1>MASTER: {{menuChoice}}</h1>
 
-		<div  class = "master-div-row" :class=computedClass v-for="(item, index) in lista" >
+		<div  class = "master-div-row" :class=computedClass v-for="(item, index) in lista" v-on:click="readDetail(item.Id)">
 			<p class = "nameParagraph">{{index}}    </p>
 			<p class = "nameParagraph">{{item.Nombre}}</p>
 			<div class ="rowButtonsContainer">
-				<button class="masterButton" v-on:click="readDetail(item.Id)" ><img class="buttonImage" src="images/read.png"/></button>
 				<button class="masterButton" v-on:click="updateDetail(item.Id)" ><img class="buttonImage" src="images/update.png"/></button>
 				<button class="masterButton" v-on:click="deleteItem(item.Id)" ><img class="buttonImage" src="images/delete.png"/></button>
 			</div>

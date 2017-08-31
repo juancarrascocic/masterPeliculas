@@ -446,7 +446,6 @@ module.exports = function normalizeComponent (
 			STATE_NEW : 0,
 			STATE_READ : 1,
 			STATE_UPDATE : 2
-
 });
 
 /***/ }),
@@ -538,7 +537,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -650,6 +649,7 @@ module.exports = function listToStyles (parentId, list) {
 			this.itemIndex = index;
 			this.showDetail = true;
 			this.enableButtons = false;
+			this.detailMode = __WEBPACK_IMPORTED_MODULE_5__constants_js__["a" /* default */].STATE_UPDATE;
 		},
 		changeTab(option) {
 			this.menuChoice = option;
@@ -775,7 +775,6 @@ exports.push([module.i, "\ndiv.master-div-row {\n\tborder-size:1px;\n\tborder-st
 //
 //
 //
-//
 
 var baseURL = "http://localhost:53765/api/";
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -836,7 +835,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('h1', [_vm._v("MASTER: " + _vm._s(_vm.menuChoice))]), _vm._v(" "), _vm._l((_vm.lista), function(item, index) {
     return _c('div', {
       staticClass: "master-div-row",
-      class: _vm.computedClass
+      class: _vm.computedClass,
+      on: {
+        "click": function($event) {
+          _vm.readDetail(item.Id)
+        }
+      }
     }, [_c('p', {
       staticClass: "nameParagraph"
     }, [_vm._v(_vm._s(index) + "    ")]), _vm._v(" "), _c('p', {
@@ -844,18 +848,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item.Nombre))]), _vm._v(" "), _c('div', {
       staticClass: "rowButtonsContainer"
     }, [_c('button', {
-      staticClass: "masterButton",
-      on: {
-        "click": function($event) {
-          _vm.readDetail(item.Id)
-        }
-      }
-    }, [_c('img', {
-      staticClass: "buttonImage",
-      attrs: {
-        "src": "images/read.png"
-      }
-    })]), _vm._v(" "), _c('button', {
       staticClass: "masterButton",
       on: {
         "click": function($event) {
@@ -1242,7 +1234,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* CSS here\n * by including `scoped`, we ensure that all CSS\n * is scoped to this component!\n */\n", ""]);
 
 // exports
 
@@ -1292,14 +1284,14 @@ var baseURL = "http://localhost:53765/api/";
 			currentPelicula: {
 				Titulo: undefined,
 				Director: undefined,
-				Duracion: 0,
+				Duracion: "",
 				Pais: undefined
 
 			},
 			previousPelicula: {
 				Titulo: undefined,
 				Director: undefined,
-				Duracion: 0,
+				Duracion: "",
 				Pais: undefined }
 		};
 	},
@@ -1309,7 +1301,17 @@ var baseURL = "http://localhost:53765/api/";
 			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
 				return true;
 			} else {
-				return false;
+				if (this.currentPelicula.Titulo != undefined) {
+					return false;
+				} else if (this.currentPelicula.Director != undefined) {
+					return false;
+				} else if (this.currentPelicula.Duracion != "") {
+					return false;
+				} else if (this.currentPelicula.Pais != undefined) {
+					return false;
+				} else {
+					return true;
+				}
 			}
 		},
 		enableResetButton: function () {
@@ -1322,8 +1324,19 @@ var baseURL = "http://localhost:53765/api/";
 		enableAcceptButton: function () {
 			if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_READ) {
 				return true;
-			} else {
-				return false;
+			} else if (this.detailMode == __WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* default */].STATE_UPDATE) {
+
+				if (this.currentPelicula.Titulo != undefined) {
+					return false;
+				} else if (this.currentPelicula.Director != undefined) {
+					return false;
+				} else if (this.currentPelicula.Duracion != "") {
+					return false;
+				} else if (this.currentPelicula.Pais != undefined) {
+					return false;
+				} else {
+					return true;
+				}
 			}
 		},
 		updateMode: function () {
@@ -1514,7 +1527,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "buttonContainer"
   }, [_c('button', {
     attrs: {
-      "disabled": !this.enableButtons,
+      "disabled": this.enableAcceptButton,
       "id": "acceptButton"
     },
     on: {
@@ -1530,7 +1543,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("LIMPIAR")]), _vm._v(" "), _c('button', {
     attrs: {
-      "disabled": !this.enableButtons,
+      "disabled": this.enableResetButton,
       "id": "resetButton"
     },
     on: {

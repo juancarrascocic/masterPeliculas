@@ -19,9 +19,9 @@
 	<option value="EEUU">EEUU</option>
 </select>
 <div class = "buttonContainer">
-	<button :disabled="!this.enableButtons" id="acceptButton" v-on:click="buttonAccept">ACEPTAR</button>
+	<button :disabled="this.enableAcceptButton" id="acceptButton" v-on:click="buttonAccept">ACEPTAR</button>
 	<button :disabled="this.enableCleanButton" id="limpiarButton" v-on:click="buttonClean">LIMPIAR</button>
-	<button :disabled="!this.enableButtons" id="resetButton" v-on:click="buttonReset">RESET</button>
+	<button :disabled="this.enableResetButton" id="resetButton" v-on:click="buttonReset">RESET</button>
 </div>
 </div>
 </div>
@@ -37,16 +37,17 @@
 				currentPelicula: {
 					Titulo: undefined,
 					Director: undefined,
-					Duracion: 0,
+					Duracion: "",
 					Pais: undefined
 
 				},
 				previousPelicula: {
 					Titulo: undefined,
 					Director: undefined,
-					Duracion: 0,
+					Duracion: "",
 					Pais: undefined}
 				}
+
 			},
 			props:['readIndex',
 			'enableButtons',
@@ -59,7 +60,21 @@
 						return true;
 					}
 					else{
-						return false;
+						if(this.currentPelicula.Titulo != undefined ){
+							return false;
+						}
+						else if(this.currentPelicula.Director != undefined){
+							return false;
+						}
+						else if(this.currentPelicula.Duracion != ""){
+							return false;
+						}
+						else if(this.currentPelicula.Pais !=undefined){
+							return false;
+						}
+						else{
+							return true;
+						}
 					}
 				},
 				enableResetButton: function(){
@@ -74,8 +89,24 @@
 					if(this.detailMode == constantes.STATE_READ){
 						return true;
 					}
-					else{
-						return false;
+					else if(this.detailMode == constantes.STATE_UPDATE){
+
+						if(this.currentPelicula.Titulo != undefined ){
+							return false;
+						}
+						else if(this.currentPelicula.Director != undefined){
+							return false;
+						}
+						else if(this.currentPelicula.Duracion != ""){
+							return false;
+						}
+						else if(this.currentPelicula.Pais !=undefined){
+							return false;
+						}
+						else{
+							return true;
+						}
+
 					}
 				}, 
 				updateMode: function(){
